@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Si se hace contacto con el piso y se aprieta espacio, salta.
-        if (collision.gameObject.tag == "Floor" && Input.GetKeyDown(KeyCode.Space))
+        if ((collision.gameObject.tag == "Floor" || collision.gameObject.tag == "Tree") && Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpHeight * Time.deltaTime), ForceMode2D.Impulse);
         }

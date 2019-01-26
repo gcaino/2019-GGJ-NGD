@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BabySpawn : MonoBehaviour
 {
-    /*
         public float babyNumber;
         public PlayerController playerPossum;
         MeshRenderer babyShow;
@@ -12,14 +11,19 @@ public class BabySpawn : MonoBehaviour
         private void Start()
         {
             playerPossum = GetComponentInParent<PlayerController>();
-            babyShow = GetComponent<MeshRenderer>;
+            babyShow = GetComponent<MeshRenderer>();
         }
 
         void Update ()
         {
-            if (playerPossum.babyCount == 1)
+            if (playerPossum.babyCount >= babyNumber)
             {
-                babyShow = 
+            babyShow.enabled = true;
             }
-        }*/
+
+        else
+        {
+            babyShow.enabled = false;
+        }
+        }
 }
