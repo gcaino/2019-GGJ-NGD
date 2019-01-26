@@ -16,6 +16,7 @@ public class BabySpawn : MonoBehaviour
 
         void Update ()
         {
+        //muestra a este bebe si la cantidad de bebes del player es correcta.
             if (playerPossum.babyCount >= babyNumber)
             {
             babyShow.enabled = true;
