@@ -6,12 +6,12 @@ public class BabySpawn : MonoBehaviour
 {
         public float babyNumber;
         public PlayerController playerPossum;
-        MeshRenderer babyShow;
+        SpriteRenderer babyShow;
 
         private void Start()
         {
             playerPossum = GetComponentInParent<PlayerController>();
-            babyShow = GetComponent<MeshRenderer>();
+            babyShow = GetComponent<SpriteRenderer>();
         }
 
         void Update ()
