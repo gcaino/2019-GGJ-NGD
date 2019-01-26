@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
     public float jumpHeight = 300;
+    public float babyCount;
     public bool hasBabies = true;
     float baseSpeed;
 
@@ -42,7 +43,22 @@ public class PlayerController : MonoBehaviour
             transform.Translate(-speed * Time.deltaTime, 0f, 0f);
         }
 
+        //Si tenes bebes, el bool hasBabies es true.
+        if (babyCount > 0)
+        {
+            hasBabies = true;
+        }
 
+        else
+        {
+            hasBabies = false;
+        }
+
+        // failsafe para que no se pase de 5 bebes.
+        if (babyCount > 5)
+        {
+            babyCount = 5;
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -53,6 +69,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //si se recolecta un bebe, el bool de hasBabies es verdadero
+        if (collision.gameObject.tag == "Baby")
+        {
+            print("recolecto bebe");
+            babyCount += 1;
+        }
+
+        //si se colisiona con un enemigo y hay bebes, el babyCount baja, si no hay bebes, moris.
+        if (collision.gameObject.tag == "Enemy" && hasBabies == true)
+        {
+            print("pierdo bebe");
+            babyCount = 0;
+        }
+
+        else if (collision.gameObject.tag == "Enemy" && hasBabies == false)
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }
 
 
