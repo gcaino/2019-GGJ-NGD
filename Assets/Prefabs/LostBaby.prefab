@@ -20,12 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4465858745975240}
   - component: {fileID: 61888297812405274}
-  - component: {fileID: 114536301142113426}
   - component: {fileID: 50502820369603852}
   - component: {fileID: 212586186142564512}
-  - component: {fileID: 61911036905815724}
   m_Layer: 9
-  m_Name: BabyPossumPickup
+  m_Name: LostBaby
   m_TagString: Baby
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466850730341850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.828349, y: 0.84244466, z: 0.23015949}
+  m_LocalPosition: {x: -7.21, y: 4.35, z: 0.23015949}
   m_LocalScale: {x: 0.047103237, y: 0.047063034, z: 0.045288}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +61,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &61888297812405274
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -89,42 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.604069, y: 8.193867}
   m_EdgeRadius: 0
---- !u!61 &61911036905815724
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1466850730341850}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 4.277693, y: -2.5993984}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 27.64, y: 8.61}
-    newSize: {x: 27.64, y: 8.61}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.251503, y: 3.4112039}
-  m_EdgeRadius: 0
---- !u!114 &114536301142113426
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1466850730341850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc0df2f4e03af049bcad3451631ac65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212586186142564512
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -288,7 +288,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -437,9 +437,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpHeight: 300
+  jumpHeight: 500
   babyCount: 0
   hasBabies: 1
+  vulnerable: 1
+  babyPickup: {fileID: 1466850730341850, guid: 835b8debad535784f851edf3f80f4873, type: 2}
 --- !u!114 &114575681784102568
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
     public float babyCount;
     public bool hasBabies = true;
     public bool vulnerable = true;
+    public GameObject babyPickup;
+    public Transform babyspawnPoint;
 
     void Update()
     {
-        //movimiento basico de derecha a izquierda
+        //movimiento basico de derecha a izquierda, solo si no sos ivulnerable después de un hit.
 
         if (vulnerable == true)
         {
@@ -48,11 +50,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator gotHit()
     {
+        //Si te lastiman, la corutina espera para hacerte vulnerable de nuevo y devolver el color.
         yield return new WaitForSeconds(1.5f);
         vulnerable = true;
         Color temp = GetComponent<SpriteRenderer>().color;
         temp.a = 1f;
-        GetComponent<SpriteRenderer>().color = temp;
+        GetComponent<SpriteRenderer>().color = temp;       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -75,8 +78,15 @@ public class PlayerController : MonoBehaviour
 
         //si se colisiona con un enemigo y hay bebes, el babyCount baja, si no hay bebes, moris
         //la colision te empuja hacia atras, te vuelve ivulnerable 3 segundos y transparente.
+        //Se lanzan los bebes que tenia encima.
         if (collision.gameObject.tag == "Enemy" && hasBabies == true && vulnerable == true)
         {
+            for (int i = 0; i < babyCount; i++)
+            {
+                GameObject lostBaby = Instantiate(babyPickup, babyspawnPoint.position, babyspawnPoint.rotation);
+                lostBaby.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-400, 400) * Time.deltaTime, 500 * Time.deltaTime), ForceMode2D.Impulse);
+            }
+
             print("pierdo bebe");
             babyCount = 0;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-300 * Time.deltaTime, 150 * Time.deltaTime), ForceMode2D.Impulse);
@@ -84,7 +94,7 @@ public class PlayerController : MonoBehaviour
             Color temp = GetComponent<SpriteRenderer>().color;
             temp.a = 0.5f;
             GetComponent<SpriteRenderer>().color = temp;
-            StartCoroutine(gotHit());
+            StartCoroutine(gotHit());            
         }
 
         else if (collision.gameObject.tag == "Enemy" && hasBabies == false && vulnerable == true)
